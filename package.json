@@ -1,6 +1,6 @@
 {
   "name": "password-strength-tester",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable password strength checker and generator",
   "main": "lib/index.js",
   "types": "index.d.ts",

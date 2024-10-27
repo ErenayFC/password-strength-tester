@@ -4,11 +4,7 @@ package-lock.json
 
 # Testing
 coverage/
-
-# Production
-lib/
-dist/
-build/
+src/
 
 # TypeScript
 *.tsbuildinfo
