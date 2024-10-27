@@ -1,0 +1,59 @@
+{
+  "name": "password-strength-tester",
+  "version": "1.0.0",
+  "description": "A customizable password strength checker and generator",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "build": "tsc"
+  },
+  "keywords": [
+    "password",
+    "security",
+    "generator",
+    "strength",
+    "checker",
+    "tester",
+    "password-strength-tester",
+    "password-strength-generator",
+    "password-strength-test",
+    "password-strength-checker",
+    "password-validator",
+    "password-validation",
+    "password-security",
+    "strong-password",
+    "secure-password",
+    "password-rules",
+    "password-policy",
+    "password-requirements",
+    "password-complexity",
+    "password-score",
+    "password-meter",
+    "password-rating",
+    "password-analysis",
+    "password-evaluation",
+    "password-quality",
+    "password-safety",
+    "password-generator-tool",
+    "password-strength-validator",
+    "password-strength-meter",
+    "password-strength-indicator"
+  ],
+  "author": "ErenayFC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ErenayFC/password-strength-tester"
+  },
+  "bugs": {
+    "url": "https://github.com/ErenayFC/password-strength-tester/issues"
+  },
+  "homepage": "https://github.com/ErenayFC/password-strength-tester#readme",
+  "devDependencies": {
+    "@types/node": "^18.19.59",
+    "jest": "^28.1.3",
+    "typescript": "^4.9.5"
+  }
+}
