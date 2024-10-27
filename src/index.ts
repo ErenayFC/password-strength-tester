@@ -9,7 +9,7 @@
  */
 const CHAR_SETS = {
   upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  lower: "abcdefghijklmnopqrstuvwxyz", 
+  lower: "abcdefghijklmnopqrstuvwxyz",
   numbers: "0123456789",
   special: "!@#$%^&*()_+-=[]{}|;:,.<>?",
 } as const;
@@ -63,7 +63,8 @@ const STRENGTH_LEVELS = {
   VERY_WEAK: { min: 0, text: "Very Weak" },
 } as const;
 
-type StrengthLevel = typeof STRENGTH_LEVELS[keyof typeof STRENGTH_LEVELS]["text"];
+type StrengthLevel =
+  (typeof STRENGTH_LEVELS)[keyof typeof STRENGTH_LEVELS]["text"];
 
 interface PasswordStrengthResult {
   strength: StrengthLevel;
@@ -197,21 +198,24 @@ function generateStrongPassword(config: PasswordConfig = {}): string {
       upper: 2,
       lower: 3,
       numbers: 2,
-      special: 2
-    }
+      special: 2,
+    },
   };
 
   const finalConfig = {
     length: config.length || defaultConfig.length,
     charCounts: {
       ...defaultConfig.charCounts,
-      ...config.charCounts
-    }
+      ...config.charCounts,
+    },
   };
 
-  const totalChars = Object.values(finalConfig.charCounts).reduce((a, b) => a + b, 0);
+  const totalChars = Object.values(finalConfig.charCounts).reduce(
+    (a, b) => a + b,
+    0
+  );
   if (totalChars > finalConfig.length) {
-    throw new Error('Total character counts cannot exceed password length');
+    throw new Error("Total character counts cannot exceed password length");
   }
 
   let password = "";
@@ -238,9 +242,11 @@ function generateStrongPassword(config: PasswordConfig = {}): string {
   const remainingLength = finalConfig.length - password.length;
   if (remainingLength > 0) {
     const allowedSets = Object.entries(CHAR_SETS)
-      .filter(([key]) => finalConfig.charCounts[key as keyof CharacterCounts] > 0)
+      .filter(
+        ([key]) => finalConfig.charCounts[key as keyof CharacterCounts] > 0
+      )
       .map(([_, value]) => value)
-      .join('');
+      .join("");
 
     if (allowedSets.length === 0) {
       addRandomChars(CHAR_SETS.lower, remainingLength);

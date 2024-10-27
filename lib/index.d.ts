@@ -28,7 +28,7 @@ declare const STRENGTH_LEVELS: {
         readonly text: "Very Weak";
     };
 };
-type StrengthLevel = typeof STRENGTH_LEVELS[keyof typeof STRENGTH_LEVELS]["text"];
+type StrengthLevel = (typeof STRENGTH_LEVELS)[keyof typeof STRENGTH_LEVELS]["text"];
 interface PasswordStrengthResult {
     strength: StrengthLevel;
     score: number;
