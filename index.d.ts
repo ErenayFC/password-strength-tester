@@ -1,4 +1,4 @@
-declare module 'password-strength-generator' {
+declare module "password-strength-tester" {
   interface CharacterCounts {
     upper?: number;
     lower?: number;
@@ -12,7 +12,7 @@ declare module 'password-strength-generator' {
   }
 
   interface PasswordStrengthResult {
-    strength: 'Very Strong' | 'Strong' | 'Medium' | 'Weak' | 'Very Weak';
+    strength: "Very Strong" | "Strong" | "Medium" | "Weak" | "Very Weak";
     score: number;
     suggestion?: string;
   }

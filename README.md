@@ -16,16 +16,16 @@ A powerful and customizable password strength checker and generator for Node.js 
 ## Installation
 
 ```bash
-npm install password-strength-generator
+npm install password-strength-tester
 ```
 
 ## Usage
 
 ```javascript
-const { check, generateStrongPassword } = require('password-strength-generator');
+const { check, generateStrongPassword } = require("password-strength-tester");
 
 // Check password strength
-const strengthResult = check('MyPassword123!');
+const strengthResult = check("MyPassword123!");
 console.log(strengthResult);
 // Output: { strength: 'Strong', score: 85 }
 
@@ -40,7 +40,7 @@ console.log(password);
 The `check` function evaluates passwords based on multiple criteria:
 
 ```javascript
-const result = check('YourPassword123!');
+const result = check("YourPassword123!");
 console.log(result);
 ```
 
@@ -82,13 +82,13 @@ const longPassword = generateStrongPassword({ length: 16 });
 
 ```javascript
 const customPassword = generateStrongPassword({
-    length: 12,
-    charCounts: {
-        upper: 3,    // uppercase letters
-        lower: 4,    // lowercase letters
-        numbers: 3,  // numeric digits
-        special: 2   // special characters
-    }
+  length: 12,
+  charCounts: {
+    upper: 3, // uppercase letters
+    lower: 4, // lowercase letters
+    numbers: 3, // numeric digits
+    special: 2, // special characters
+  },
 });
 ```
 
@@ -96,13 +96,13 @@ const customPassword = generateStrongPassword({
 
 ```typescript
 interface PasswordConfig {
-    length?: number;    // Total length (default: 9)
-    charCounts?: {
-        upper?: number;   // Uppercase count (default: 2)
-        lower?: number;   // Lowercase count (default: 3)
-        numbers?: number; // Numbers count (default: 2)
-        special?: number; // Special chars count (default: 2)
-    }
+  length?: number; // Total length (default: 9)
+  charCounts?: {
+    upper?: number; // Uppercase count (default: 2)
+    lower?: number; // Lowercase count (default: 3)
+    numbers?: number; // Numbers count (default: 2)
+    special?: number; // Special chars count (default: 2)
+  };
 }
 ```
 
@@ -111,32 +111,32 @@ interface PasswordConfig {
 ```javascript
 // Only uppercase and numbers
 const uppercaseNumbers = generateStrongPassword({
-    length: 10,
-    charCounts: {
-        upper: 5,
-        lower: 0,
-        numbers: 5,
-        special: 0
-    }
+  length: 10,
+  charCounts: {
+    upper: 5,
+    lower: 0,
+    numbers: 5,
+    special: 0,
+  },
 });
 
 // Only lowercase letters
 const lowercaseOnly = generateStrongPassword({
-    length: 8,
-    charCounts: {
-        upper: 0,
-        lower: 8,
-        numbers: 0,
-        special: 0
-    }
+  length: 8,
+  charCounts: {
+    upper: 0,
+    lower: 8,
+    numbers: 0,
+    special: 0,
+  },
 });
 
 // Extra special characters
 const specialHeavy = generateStrongPassword({
-    length: 12,
-    charCounts: {
-        special: 4
-    }
+  length: 12,
+  charCounts: {
+    special: 4,
+  },
 });
 ```
 
@@ -147,7 +147,7 @@ Default character sets used for generation:
 - Uppercase: A-Z
 - Lowercase: a-z
 - Numbers: 0-9
-- Special: !@#$%^&*()_+-=[]{}|;:,.<>?
+- Special: !@#$%^&\*()\_+-=[]{}|;:,.<>?
 
 ## Error Handling
 
@@ -155,15 +155,15 @@ The module throws errors for invalid inputs:
 
 ```javascript
 try {
-    const password = generateStrongPassword({
-        length: 5,
-        charCounts: {
-            upper: 10 // Error: exceeds total length
-        }
-    });
+  const password = generateStrongPassword({
+    length: 5,
+    charCounts: {
+      upper: 10, // Error: exceeds total length
+    },
+  });
 } catch (error) {
-    console.error(error.message);
-    // "Total character counts cannot exceed password length"
+  console.error(error.message);
+  // "Total character counts cannot exceed password length"
 }
 ```
 
@@ -172,12 +172,12 @@ try {
 Full TypeScript support with type definitions included:
 
 ```typescript
-import { check, generateStrongPassword } from 'password-strength-generator';
+import { check, generateStrongPassword } from "password-strength-tester";
 
 interface PasswordResult {
-    strength: string;
-    score: number;
-    suggestion?: string;
+  strength: string;
+  score: number;
+  suggestion?: string;
 }
 ```
 
